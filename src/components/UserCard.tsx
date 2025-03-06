@@ -1,12 +1,16 @@
-import React from "react";
+import { User } from "../gql/graphql";
 
-const UserCard = ({ user }) => {
+interface UserType {
+  user: User;
+}
+
+const UserCard = ({ user }: UserType) => {
   return (
     <div>
       <div className="flex gap-3 items-center bg-blue-50 p-5 rounded-xl">
         <img
           className="h-[50px] w-[50px] rounded-full"
-          src={user.profileImageURL}
+          src={user.profileImageURL ?? "/"}
           alt="user image"
         />
         <div className="font-semibold text-lg">

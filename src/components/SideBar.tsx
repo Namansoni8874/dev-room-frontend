@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { FaUser } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { IoHome } from "react-icons/io5";

@@ -15,7 +15,7 @@ export const useCreateBlog=()=>{
             const response=await graphqlClient.request(createBlog,{payload}) 
             return response
         },
-        onMutate:(payload) => toast.loading("Creating Tweet", { id: "1" }),
+        onMutate:() => toast.loading("Creating Tweet", { id: "1" }),
         onSuccess:async()=>{
             toast.dismiss("1")
             queryClient.invalidateQueries(["get-blogs"])}

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import SideBar from "../components/SideBar";
 import { useCurrentUser, useGetUserById } from "../hooks/user";
 import { useParams } from "react-router-dom";
@@ -13,7 +13,7 @@ const Profile = () => {
   const [isFollowing, setIsFollowing] = useState(false);
   const { id } = useParams();
   const { user } = useCurrentUser();
-  const { userByID, refetch } = useGetUserById(id);
+  const { userByID, refetch } = useGetUserById(id ?? "");
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Profile = () => {
             <div className="flex flex-col gap-3">
               <img
                 className="w-[100px] h-[100px] rounded-full "
-                src={userByID?.profileImageURL}
+                src={userByID?.profileImageURL ?? ""}
               />
               <div className="   text-xl font-semibold">
                 {userByID?.firstName} {userByID?.lastName}

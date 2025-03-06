@@ -1,10 +1,14 @@
-import React from "react";
 import { CiShare2 } from "react-icons/ci";
-import { FaRegComment, FaRegUser } from "react-icons/fa";
+import { FaRegComment } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import { Tweet } from "../gql/graphql";
 
-const FeedCard = ({ blog }) => {
+interface BLogType {
+  blog: Tweet;
+}
+
+const FeedCard = ({ blog }: BLogType) => {
   const navigate = useNavigate();
 
   const handleUserCLick = () => {
@@ -18,7 +22,7 @@ const FeedCard = ({ blog }) => {
         <div className="h-[50px] w-[50px] rounded-full">
           <img
             className="h-[50px] w-[50px] rounded-full"
-            src={blog.author?.profileImageURL}
+            src={blog.author?.profileImageURL ?? "/"}
           />
         </div>
         <div>

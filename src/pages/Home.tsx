@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import SideBar from "../components/SideBar";
 import FeedCard from "../components/FeedCard";
 import { MdOutlinePostAdd } from "react-icons/md";
@@ -11,7 +11,7 @@ const Home = () => {
   const { blogs, isError } = useGetAllBlogs();
   const { mutateAsync } = useCreateBlog();
 
-  const [content, setContent] = useState<string>();
+  const [content, setContent] = useState<string>("");
 
   const handleOnSubmit = useCallback(() => {
     mutateAsync({
