@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useCurrentUser } from "../hooks/user";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
 import { graphqlClient } from "../client/api";
@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="hover:bg-blue-200 p-3 rounded-full">
             <img
               className="h-[40px] w-[40px] rounded-full"
-              src={user.profileImageURL}
+              src={user.profileImageURL ?? "/"}
             />
           </div>
         )}

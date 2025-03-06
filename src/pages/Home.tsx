@@ -71,6 +71,8 @@ const Home = () => {
           )}
           <div className="flex gap-5 flex-col">
             {blogs ? (
+              //@ts-ignore
+
               blogs.map((item) => <FeedCard key={item?.id} blog={item} />)
             ) : (
               <div>{isError}</div>

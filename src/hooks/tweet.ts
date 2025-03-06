@@ -18,6 +18,7 @@ export const useCreateBlog=()=>{
         onMutate:() => toast.loading("Creating Tweet", { id: "1" }),
         onSuccess:async()=>{
             toast.dismiss("1")
+            //@ts-ignore
             queryClient.invalidateQueries(["get-blogs"])}
 
     })

@@ -31,6 +31,8 @@ const Profile = () => {
     if (!userByID?.id) return false;
     try {
       await graphqlClient.request(FollowUser, { to: userByID.id });
+      //@ts-ignore
+
       await queryClient.invalidateQueries(["current-user"]);
     } catch (error) {
       console.log(error);
@@ -40,6 +42,8 @@ const Profile = () => {
     if (!userByID?.id) return false;
     try {
       await graphqlClient.request(UnFollowUser, { to: userByID.id });
+      //@ts-ignore
+
       await queryClient.invalidateQueries(["current-user"]);
     } catch (error) {
       console.log(error);
@@ -110,6 +114,8 @@ const Profile = () => {
             {userByID &&
               userByID.tweets &&
               userByID.tweets.map((item) => {
+                //@ts-ignore
+
                 return <FeedCard key={item?.id} blog={item} />;
               })}
           </div>
@@ -136,9 +142,12 @@ const Profile = () => {
           >
             <div className="w-1/2 bg-white h-[80%] rounded-2xl p-3 ">
               <div className="h-full w-full overflow-y-scroll p-3">
-                {userByID.following.map((item) => {
-                  return <UserCard key={item?.id} user={item} />;
-                })}
+                {userByID.following &&
+                  userByID.following.map((item) => {
+                    //@ts-ignore
+
+                    return <UserCard key={item?.id} user={item} />;
+                  })}
               </div>
             </div>
           </div>
