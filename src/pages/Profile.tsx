@@ -129,6 +129,8 @@ const Profile = () => {
             <div className="w-1/2 bg-white h-[80%] rounded-2xl p-3 ">
               <div className="h-full w-full overflow-y-scroll p-3">
                 {userByID.followers.map((item) => {
+                  //@ts-ignore
+
                   return <UserCard key={item?.id} user={item} />;
                 })}
               </div>
