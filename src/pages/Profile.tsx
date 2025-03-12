@@ -27,6 +27,7 @@ const Profile = () => {
     );
   }, [user, userByID]);
 
+  console.log(user);
   const handleFollow = useCallback(async () => {
     if (!userByID?.id) return false;
     try {
@@ -127,7 +128,7 @@ const Profile = () => {
             className="fixed inset-0 flex items-center justify-center  h-screen w-full bg-black/50"
           >
             <div className="w-1/2 bg-white h-[80%] rounded-2xl p-3 ">
-              <div className="h-full w-full overflow-y-scroll p-3">
+              <div className="h-full w-full flex flex-col gap-4 overflow-y-scroll p-3">
                 {userByID.followers.map((item) => {
                   //@ts-ignore
 
@@ -143,7 +144,7 @@ const Profile = () => {
             className="fixed inset-0 flex items-center justify-center  h-screen w-full bg-black/50"
           >
             <div className="w-1/2 bg-white h-[80%] rounded-2xl p-3 ">
-              <div className="h-full w-full overflow-y-scroll p-3">
+              <div className="h-full w-full flex flex-col gap-4  overflow-y-scroll p-3">
                 {userByID.following &&
                   userByID.following.map((item) => {
                     //@ts-ignore

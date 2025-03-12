@@ -19,11 +19,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="bg-blue-100 flex justify-between p-3 sticky top-0 ">
+    <div className="bg-blue-100 flex justify-between items-center p-3 sticky top-0 ">
       <div className="text-2xl font-medium">DevRoom</div>
       <div>
         <input
-          className="border-[1.5px] border-gray-300 w-[200px] rounded-full outline-none p-2 hover:w-[300px] transition-all bg-blue-50"
+          className="max-sm:hidden border-[1.5px] border-gray-300 w-[200px] rounded-full outline-none p-2 hover:w-[300px] transition-all bg-blue-50"
           placeholder="Search"
         />
       </div>

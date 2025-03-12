@@ -37,26 +37,40 @@ const SideBar: React.FC<TwitterlayoutProps> = (props) => {
     },
   ];
   return (
-    <div className="flex">
-      <div className="w-[20%]  h-screen border-gray-200  border-r-[1px] flex flex-col pl-6 gap-4 pt-10">
-        {sideItems.map((item, index) => {
-          return (
-            <div
-              onClick={() => {
-                navigate(item.path);
-              }}
-              key={index}
-              className="flex  items-center gap-2 text-lg font-semibold hover:bg-blue-50 py-[10px] px-[20px] w-fit rounded-full  "
-            >
-              {item.icon}
-              {item.name}
-            </div>
-          );
-        })}
+    <>
+      <div className="flex">
+        <div className="max-sm:hidden w-[20%]  h-screen border-gray-200  border-r-[1px] flex flex-col pl-6 gap-4 pt-10">
+          {sideItems.map((item, index) => {
+            return (
+              <div
+                onClick={() => {
+                  navigate(item.path);
+                }}
+                key={index}
+                className="flex  items-center gap-2 text-lg font-semibold hover:bg-blue-50 py-[10px] px-[20px] w-fit rounded-full  "
+              >
+                {item.icon}
+                {item.name}
+              </div>
+            );
+          })}
+        </div>
+        <div className="sm:w-[55%] w-[100%]">{props.children}</div>
+        <div className="max-sm:hidden w-[25%] h-screen border-l-[1px] border-gray-200"></div>
       </div>
-      <div className="w-[55%]">{props.children}</div>
-      <div className="w-[25%] h-screen border-l-[1px] border-gray-200"></div>
-    </div>
+      <div className="sm:hidden border-t-[1px] border-gray-100  fixed bottom-0 h-[70px] w-[100%] bg-white flex items-center justify-between px-5 ">
+        {sideItems.map((item) => (
+          <div
+            onClick={() => {
+              navigate(item.path);
+            }}
+            className=" text-3xl"
+          >
+            {item.icon}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

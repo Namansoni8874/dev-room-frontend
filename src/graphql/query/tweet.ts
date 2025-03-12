@@ -9,6 +9,7 @@ export const GetAllBlogs = graphql(`
       id
       content
       imageURL
+      createdAt
       author {
         id
         firstName

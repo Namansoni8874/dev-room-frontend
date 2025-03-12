@@ -3,6 +3,7 @@ import { FaRegComment } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { Tweet } from "../gql/graphql";
+import moment from "moment";
 
 interface BLogType {
   blog: Tweet;
@@ -32,12 +33,17 @@ const FeedCard = ({ blog }: BLogType) => {
           >
             {blog.author?.firstName} {blog.author?.lastName}
           </div>
-          <div className="text-gray-500">2 min ago</div>
+          <div className="text-gray-500">
+            {moment(blog.createdAt).fromNow()}
+          </div>
         </div>
       </div>
       {/* content */}
       <div className="p-3 text-md">
         <p>{blog.content}</p>
+      </div>
+      <div>
+        <img className="rounded-md" src={blog.imageURL ?? ""} />
       </div>
       {/* reaction */}
       <div className="flex text-2xl justify-start gap-6 py-[10px]">
