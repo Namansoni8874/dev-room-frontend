@@ -6,7 +6,9 @@ const client = new Client()
 
 const storage = new Storage(client);
 const account = new Account(client);
-const session = await account.get();
-console.log("User Session:", session);
+const session = account.get();
+
+session.then((session)=>console.log("User Session:", session))
+
 
 export { storage };
