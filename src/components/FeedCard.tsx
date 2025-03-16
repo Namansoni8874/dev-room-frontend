@@ -17,7 +17,7 @@ const FeedCard = ({ blog }: BLogType) => {
   };
 
   return (
-    <div className="rounded-2xl shadow-lg hover:bg-blue-50 px-[15px] py-[10px]">
+    <div className="rounded-2xl border-t-[1px] border-gray-100 shadow-lg hover:bg-blue-50 px-[15px] py-[10px]">
       {/* user */}
       <div className="flex items-center gap-3  p-3 border-b-[1px] border-gray-300">
         <div className="h-[50px] w-[50px] rounded-full">
@@ -46,7 +46,7 @@ const FeedCard = ({ blog }: BLogType) => {
         <img className="rounded-md" src={blog.imageURL ?? ""} />
       </div>
       {/* reaction */}
-      <div className="flex text-2xl justify-start gap-6 py-[10px]">
+      <div className="flex text-xl justify-center  gap-6 py-[10px]">
         <FaRegComment />
         <FcLike />
         <CiShare2 />

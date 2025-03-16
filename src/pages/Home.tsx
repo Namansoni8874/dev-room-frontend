@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <div>
       <SideBar>
-        <div className="p-[30px]">
+        <div className="p-3 sm:p-[30px] ">
           {/* adding blog section */}
           <div
             onClick={() => setIsOpean(true)}
