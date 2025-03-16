@@ -7,6 +7,8 @@ const client = new Client()
 const storage = new Storage(client);
 const account = new Account(client);
 
+console.log(" this file is running ")
+
 const checkSession = async () => {
     try {
         const session = await account.get();
