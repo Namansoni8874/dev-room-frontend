@@ -6,9 +6,16 @@ const client = new Client()
 
 const storage = new Storage(client);
 const account = new Account(client);
-const session = account.get();
 
-session.then((session)=>console.log("User Session:", session))
+const checkSession = async () => {
+    try {
+        const session = await account.get();
+        console.log("✅ User Session:", session);
+    } catch (error) {
+        console.error("❌ Error fetching session:", error);
+    }
+};
 
+checkSession();
 
 export { storage };
